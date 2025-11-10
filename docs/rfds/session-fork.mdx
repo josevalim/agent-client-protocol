@@ -1,55 +1,41 @@
 ---
-title: "INSERT RFD TITLE HERE"
+title: "Forking of existing sessions"
 ---
 
-<!--
-
-Instructions:
-
-* Copy this file and give it a name like my-feature-slug.mdx
-* Do not remove the `>` sections -- they are part of the template!
-* Replace the HTML comments that give general guidance with your answers and content. Do not begin your answers with `>`, your text should be unquoted.
-* For optional sections, you can leave the HTML comment as is if you do not wish to provide an answer.
-* In the FAQ, begin each question with a markdown `##` section so that it gets a linkable anchor.
-
--->
-
-Author(s): [githubhandle](url)
+Author(s): [@josevalim](https://github.com/josevalim)
 
 ## Elevator pitch
 
 > What are you proposing to change?
 
-<!--
-    Give a brief, high-level overview of what you plan to do and what problem you are solving. Feel free to use bullet points to help clarify the structure.
--->
+We propose adding the ability to "fork" a new session based on an existing one.
+This will allow us to use the current conversation as context to generate pull
+request descriptions, summaries, etc. without polluting the user history.
 
 ## Status quo
 
 > How do things work today and what problems does this cause? Why would we change things?
 
+Imagine we want to summarize the current conversation to use it in a future chat. If we send a message
+asking for the summary, it will become part of its context, affecting future user interactions.
+Therefore we want to be able to fork a session, issue additional messages, and then close the fork.
+
 ## What we propose to do about it
 
 > What are you proposing to improve the situation?
 
-<!--
-    Use this section to describe what you propose to do at a high-level.
-    Don't give every detail, this should be the high-level summary.
-
-    Note: This section is OPTIONAL when RFDs are first opened.
-    You can also include multiple variants if you have different ideas of how to approach the problem, though these should be narrowed down as the RFD progresses.
--->
+One possible solution is to add a session/fork command.
 
 ## Shiny future
 
 > How will things will play out once this feature exists?
 
-<!--
-    Use this section to describe the "status quo" as it will play out once
-    we have made these changes.
+We will be able to implement functionality that requires using the current chat
+without polluting its history, ranging from summaries to potentially subagents.
 
-    Note: This section is OPTIONAL when RFDs are first opened.
--->
+I can also see this feature being extended in the future to support an optional
+message ID, so the fork happens at a specific message, allowing clients to implement
+functionality like editing previous messages and similar.
 
 ## Implementation details and plan
 
@@ -71,7 +57,7 @@ Author(s): [githubhandle](url)
 
 ### What alternative approaches did you consider, and why did you settle on this one?
 
-None. The idea came to me fully formed, like Athena springing from Zeus's head.
+None. This proposal is inspired by the abilities exposed in Claude Agent SDK. It must be validated against other agents too.
 
 <!-- You...may want to adjust this. -->
 
